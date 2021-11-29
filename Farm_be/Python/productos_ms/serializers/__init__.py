@@ -1,0 +1,4 @@
+from .productosSerializer import ProductosSerializer
+from .categorySerializer import CategorySerializer
+from .roleSerializer import RoleSerializer
+from .userSerializer import UserSerializer

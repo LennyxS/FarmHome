@@ -22,38 +22,44 @@ class AuthAPI extends RESTDataSource{
     async updateUser(user) {
         user = new Object(JSON.parse(JSON.stringify(user)));
         let userId = user.id
-        return await this.put(`/user/${userId}`, user);
+        return await this.put(`/user/${userId}/`, user);
     }
 
     async deleteUser(userId) {
         return await this.delete(`/user/${userId}`);
     }
 
-    async authRequest(credentials){
+    async authRequest(credentials) {
+        credentials = new Object(credentials);
         return await this.post('/login/', credentials);
     }
 
-    async refreshToken(token){
-        token = new Object(JSON.parse(JSON.stringify({ refresh: token})));
-        return await this.post(`/refresh/`, token);
+    async refreshToken(token) {
+        token = new Object(JSON.parse(JSON.stringify({refresh:token})));
+        return await this.post('/refresh/', token)
     }
 
     async createProducto(producto){
         return await this.post('/producto/', producto);
     }
 
+    //async updateProducto(producto) {
+    //    user = new Object(JSON.parse(JSON.stringify(producto)));
+    //    let productId = producto.id
+    //    return await this.put(`/producto/${productId}/`, producto);
+    //}
+    
     async updateProducto(producto) {
-        user = new Object(JSON.parse(JSON.stringify(producto)));
-        let productId = producto.id
-        return await this.put(`/producto/${productId}`, producto);
+        producto = new Object(JSON.parse(JSON.stringify(producto)));
+        return await this.put(`/producto/${producto.id}/`, producto);
     }
 
-    async deleteProducto(productId) {
-        return await this.delete(`/producto/${productId}`);
+    async deleteProducto(id) {
+        return await this.delete(`/producto/${id}`);
     }
 
-    async productoByName(productName){
-        return await this.get(`/producto/${productName}`);
+    async productoByName(name){
+        return await this.get(`/productobyname/${name}`);
     }
 
 }

@@ -5,7 +5,6 @@ const ordenTypeDefs = gql `
         username: String!
         product_id: Int!
         product_quantity: Int!
-        category: String!
         subtotal: Int!
     }
 
@@ -13,20 +12,28 @@ const ordenTypeDefs = gql `
         username: String!
         product_id: Int!
         product_quantity: Int!
-        category: String!
+        subtotal: Int!
+    }
+
+    input OrdenUpdate {
+        id: String!
+        username: String!
+        product_id: Int!
+        product_quantity: Int!
         subtotal: Int!
     }
 
     extend type Query {
-        ordentByUserame(username: String!): [Orden]
+        ordenByUsername(username: String!): [Orden]
     }
 
     extend type Query {
-        ordentById(id: String!): Orden
+        ordenById(id: String!): Orden
     }
 
     extend type Mutation {
         createOrden(orden: OrdenInput!): Orden
+        deleteOrden(id: String!): String!
     }
 `;
 

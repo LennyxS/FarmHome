@@ -1,20 +1,8 @@
 <template>
   <div id="app" class="Logo">  
-    <button> v-if="isAuth" v-on:click="loadLogIn"  Iniciar sesion </button>
-    <button> v-if="isAuth" v-on:click="loadSignUp" Registrarse    </button>
-    <button> v-if="!isAuth" Verduras                              </button>
-    <button> v-if="!isAuth" Papas...                              </button>
-    <button> v-if="!isAuth" Hierbas...                            </button>
-    <button> v-if="!isAuth" Canasta..                             </button>
-  
-  <div class="ImagenVerdura">   
-    <img> 
-    <img dsadsadsa>
-      <div class="TextoVerduras">
-    <p>Verdura
-
-
-  </div>
+    <button> v-if="isAuth"  Iniciar sesion </button>
+    <button> v-if="isAuth"  Registrarse    </button>
+    
   
   <div class="header">
       <h3>FarmHome</h3>
@@ -33,7 +21,7 @@ export default{
   },
 
   methods:{
-    veryfyauth
+    
   },
   
   created: function(){
@@ -61,23 +49,4 @@ export default{
     align-items: center;
   }
   
-  .header h1{
-    width: 20%;
-    text-align: center;
-  }
-
-
-  .ImagenVerdura{
-    width: 100px;
-    height: 50px;
-    left: 50px;
-    right: 200px;
-
-  }
-
-  .TextoVerdura{
-    height: 20px;
-
-  }
-
 </style>

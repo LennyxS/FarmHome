@@ -1,5 +1,8 @@
+import { Namespaces }                         from '@vue/compiler-core';
 import { createRouter, createWebHashHistory } from 'vue-router'
-import App from './App.vue'
+import App                                    from './App.vue'
+import LogIn                                  from './components/LogIn.vue'
+import SignUp                                 from './components/SignUp.vue'
 
 const routes = [{
     path: '/',
@@ -16,7 +19,7 @@ const routes = [{
     path: '/user/signUp',
     name: 'signUp',
     component: SignUp
-  }
+  },
 ];
 
 const router = createRouter({

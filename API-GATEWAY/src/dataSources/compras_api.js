@@ -21,6 +21,9 @@ class ComprasAPI extends RESTDataSource{
         return await this.get(`/ordenesbyid/${ordenId}`);
     }
 
+    async deleteOrden(id) {
+        return await this.delete(`/ordenes/delete/${id}`);
+    }
 
     async createCompra(compra){
         return await this.post('/compras/', compra);
@@ -30,8 +33,12 @@ class ComprasAPI extends RESTDataSource{
         return await this.get(`/comprasbyusername/${username}`);
     }
 
-    async compraById(compraId){
-        return await this.get(`/comprasbyid/${compraId}`);
+    async compraById(id){
+        return await this.get(`/comprasbyid/${id}`);
+    }
+
+    async deleteCompra(id) {
+        return await this.delete(`/compras/delete/${id}`);
     }
 }
 

@@ -1,11 +1,7 @@
 const productoResolver = {
     Query: {
-        productoByName: async (_,{name},{dataSources, userIdToken})=>{
-            nameToken = (await dataSources.authAPI.getUser(userIdToken)).name
-            if(name == nameToken)
-                return dataSources.authAPI.productoByName(name)
-            else
-                return null;
+        productoByName: async(_, {name}, {dataSources})=>{
+            return await dataSources.authAPI.productoByName(name);
         }
     },
     Mutation: {
@@ -18,6 +14,14 @@ const productoResolver = {
                 stock:producto.stock,
             }
             return await dataSources.authAPI.createProducto(productInput);
+        },
+
+        updateProducto:async(_, { producto }, { dataSources }) => {
+            return await dataSources.authAPI.updateProducto(producto);
+        },
+        
+        deleteProducto: async (_, {id},{dataSources }) => {
+            return await dataSources.authAPI.deleteProducto(id)
         }
     }
 }

@@ -14,15 +14,16 @@ const compraTypeDefs = gql `
     }
 
     extend type Query {
-        compratByUserame(username: String!): [Compra]
+        compraByUsername(username: String!): [Compra]
     }
 
     extend type Query {
-        compratById(id: String!): [Compra]
+        compraById(id: String!): Compra
     }
 
     extend type Mutation {
-        createCompra(orden: CompraInput!): Compra
+        createCompra(compra: CompraInput!): Compra
+        deleteCompra(id: String!): String!
     }
 `;
 

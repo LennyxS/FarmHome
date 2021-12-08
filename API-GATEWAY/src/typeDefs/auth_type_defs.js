@@ -15,6 +15,10 @@ const authTypeDefs = gql `
         password: String!
     }
 
+    input Refresh {
+        refresh:String!
+    }
+
     input SignUpInput {
         username: String!
         password: String!
@@ -27,13 +31,14 @@ const authTypeDefs = gql `
     type UserDetail {
         id: Int!
         username: String!
-        password: String!
         name: String!
+        lastname: String!
         role: Int!
         email: String!
     }
 
     input userUpdate {
+        id: Int!
         username: String!
         password: String!
         name: String!
@@ -45,7 +50,7 @@ const authTypeDefs = gql `
     type Mutation {
         signUpUser(userInput: SignUpInput): Tokens!
         logIn(credentials: CredentialsInput!): Tokens!
-        refreshToken(refresh: String!): Access!
+        refreshToken(token: String!): Access!
         updateUser(user: userUpdate!): UserDetail!
         deleteUser(userId: Int!): String!
     }

@@ -10,6 +10,7 @@
         <button v-if="is_auth" > Cerrar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadLogIn" > Iniciar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadSignUp" > Registrarse </button>
+        <button v-if="!is_auth" v-on:click="loadCarrito" > Carrito </button>
       </nav>
     </div>
     
@@ -18,6 +19,7 @@
       <router-view  
         v-on:completedLogIn="completedLogIn"
         v-on:completedSignUp="completedSignUp"
+        v-on:completedCarrito="completedCarrito"
       >
       </router-view>
     </div>
@@ -60,6 +62,10 @@ export default {
       this.$router.push({name: "signUp"})
     },
 
+    loadCarrito: function(){
+      this.$router.push({name: "carrito"})
+    },
+
     completedLogIn: function(data) {},
 
     completedSignUp: function(data) {},
@@ -86,7 +92,7 @@ export default {
 
   .header{
     margin: 0%;
-    padding: 0;
+    padding: 0%;
     width: 100%;
     height: 10vh; 
     min-height: 100px;
@@ -117,10 +123,10 @@ export default {
 
   .header nav button{
     color: #E5E7E9;
-    background: #283747;
+    background: #3d3003;
     border: 1px solid #E5E7E9;
 
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 10px 20px;
   }
 

@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import App from './App.vue';
+import App                                from './App.vue';
 
-import LogIn from './components/LogIn.vue'
-import SignUp from './components/SignUp.vue'
+import LogIn    from './components/LogIn.vue'
+import SignUp   from './components/SignUp.vue'
+import Carrito  from './components/Carrito.vue'
 
 
 const routes = [{
@@ -19,6 +20,11 @@ const routes = [{
         path: '/user/signUp',
         name: "signUp",
         component: SignUp
+    },
+    {
+        path: '/carrito',
+        name: 'miniCart',
+        component: Carrito
     }
 ];
 

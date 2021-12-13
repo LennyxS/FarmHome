@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const productoTypeDefs = gql `
     type Producto {
-        id: Int!
+        product_id: ID
         name: String!
         price: Int!
         description: String!
@@ -27,7 +27,7 @@ const productoTypeDefs = gql `
     }
 
     input ProductoUpdate {
-        id: Int!
+        product_id: Int!
         name: String!
         price: Int!
         description: String!
@@ -39,11 +39,12 @@ const productoTypeDefs = gql `
     extend type Mutation {
         createProducto(producto: ProductoInput!): ProductoDetail!
         updateProducto(producto: ProductoUpdate!): ProductoDetail!
-        deleteProducto(id: Int!): String!
+        deleteProducto(product_id: Int!): String!
     }
 
     type Query {
-        productoByName(name: String!): ProductoDetail!
+        productoByName(name: String!): Producto
+        producto: [Producto]
     }
 `;
 

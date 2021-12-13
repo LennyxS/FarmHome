@@ -25,9 +25,6 @@ const ordenTypeDefs = gql `
 
     extend type Query {
         ordenByUsername(username: String!): [Orden]
-    }
-
-    extend type Query {
         ordenById(id: String!): Orden
     }
 

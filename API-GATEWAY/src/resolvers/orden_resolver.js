@@ -1,22 +1,26 @@
 const ordenResolver = {
     Query: {
-        ordenByUsername: async(_, {username}, {dataSources})=>{
-            return await dataSources.comprasAPI.ordenByUsername(username);
+            ordenByUsername: async(_, {username}, {dataSources, userIdToken})=>{
+                usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username;
+                if(username == usernameToken)
+                    return await dataSources.comprasAPI.ordenByUsername(username);
+                else
+                    return null;
         },
 
         ordenById: async(_, {id}, {dataSources})=>{
             return await dataSources.comprasAPI.ordenById(id);
         }
+
     },
     Mutation: {
-        createOrden: async (_, {orden}, {dataSources}) => {
-            const ordenInput = {
-                username:orden.username,
-                product_id:orden.product_id,
-                product_quantity:orden.product_quantity,
-                subtotal:orden.subtotal,
-            }
-            return await dataSources.comprasAPI.createOrden(ordenInput);
+
+        createOrden: async (_, {orden}, {dataSources, userIdToken}) => {
+            usernameToken  = (await dataSources.authAPI.getUser(userIdToken)).username;
+            if(orden.username == usernameToken)
+                return await dataSources.comprasAPI.createOrden(orden);
+            else
+                return null;
         },
 
         

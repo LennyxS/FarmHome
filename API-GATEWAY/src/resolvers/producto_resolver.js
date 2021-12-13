@@ -2,6 +2,10 @@ const productoResolver = {
     Query: {
         productoByName: async(_, {name}, {dataSources})=>{
             return await dataSources.authAPI.productoByName(name);
+        },
+
+        producto: async (_, {producto}, {dataSources}) => {
+            return await dataSources.authAPI.producto(producto)
         }
     },
     Mutation: {
@@ -20,9 +24,10 @@ const productoResolver = {
             return await dataSources.authAPI.updateProducto(producto);
         },
         
-        deleteProducto: async (_, {id},{dataSources }) => {
-            return await dataSources.authAPI.deleteProducto(id)
+        deleteProducto: async (_, {product_id},{dataSources }) => {
+            return await dataSources.authAPI.deleteProducto(product_id)
         }
+        
     }
 }
 

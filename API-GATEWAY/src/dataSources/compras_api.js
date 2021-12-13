@@ -10,6 +10,7 @@ class ComprasAPI extends RESTDataSource{
     }
 
     async createOrden(orden){
+        orden = new Object(JSON.parse(JSON.stringify(orden)));
         return await this.post('/ordenes/', orden);
     }
 
@@ -17,8 +18,8 @@ class ComprasAPI extends RESTDataSource{
         return await this.get(`/ordenesbyusername/${username}`);
     }
 
-    async ordenById(ordenId){
-        return await this.get(`/ordenesbyid/${ordenId}`);
+    async ordenById(id){
+        return await this.get(`/ordenesbyid/${id}`);
     }
 
     async deleteOrden(id) {

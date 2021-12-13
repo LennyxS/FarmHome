@@ -54,12 +54,16 @@ class AuthAPI extends RESTDataSource{
         return await this.put(`/producto/${producto.id}/`, producto);
     }
 
-    async deleteProducto(id) {
-        return await this.delete(`/producto/${id}`);
+    async deleteProducto(product_id) {
+        return await this.delete(`/producto/${product_id}`);
     }
 
     async productoByName(name){
         return await this.get(`/productobyname/${name}`);
+    }
+
+    async producto(producto){
+        return await this.get('/producto/', producto);
     }
 
 }
